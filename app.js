@@ -100,7 +100,7 @@ function decideWinner(playerWeapon, computerWeapon) {
 		if (playerWeapon == "scissors" && computerWeapon == "paper") {
 			decider = "You Won";
 		} else if (playerWeapon == "scissors" && computerWeapon == "rock") {
-			decider = "You lost";
+			decider = "You Lost";
 		}
 	}
 
