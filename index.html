@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+
+		<title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+	</head>
+	<body>
+		<div class="container">
+			<div class="score-board">
+				<ul>
+					<li>Rock</li>
+					<li>Paper</li>
+					<li>Scissors</li>
+				</ul>
+				<div class="score">
+					<h4>Score</h4>
+					<span class="current-score">0</span>
+				</div>
+			</div>
+
+			<!-- select section  -->
+
+			<div class="selector-section choose">
+				<div class="image-bg" id="paper">
+					<img src="images/icon-paper.svg" />
+				</div>
+				<div class="image-bg" id="scissors">
+					<img src="images/icon-scissors.svg" />
+				</div>
+				<div class="image-bg" id="rock"><img src="images/icon-rock.svg" /></div>
+				<img src="images/bg-triangle.svg" class="triangle" />
+			</div>
+
+			<!-- selected section  -->
+
+			<div class="selector-section chosen">
+				<!-- <div class="image-bg"><img src="images/icon-paper.svg"></div> -->
+				<!-- <div class="image-bg"><img src="images/icon-paper.svg"></div> -->
+			</div>
+			<div class="selected-text">
+				<h3 class="selector-text">You Chose</h3>
+				<h3 class="selector-text">The House Chose</h3>
+			</div>
+
+			<div class="round-status">
+				<h1 id="decider-text">You Won</h1>
+				<span class="playagain">Play Again</span>
+			</div>
+
+			<span class="button">Rules</span>
+		</div>
+
+		<!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+	</body>
+	<script src="app.js"></script>
+</html>
