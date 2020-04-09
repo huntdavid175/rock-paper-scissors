@@ -120,8 +120,8 @@ function decideWinner(playerWeapon, computerWeapon) {
 				break;
         }
         localStorage.setItem(setScore,score)
-        console.log(score);
-        console.log(localStorage.getItem(setScore))
+        // console.log(score);
+        // console.log(localStorage.getItem(setScore))
 
 		scoreText.textContent = localStorage.getItem(setScore);
 	}

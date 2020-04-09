@@ -78,6 +78,7 @@ li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 #paper {
@@ -123,6 +124,7 @@ img {
 	border-radius: 5px;
 	color: #fff;
 	border: 2px solid hsl(217, 16%, 45%);
+	cursor: pointer;
 }
 
 .round-status {
@@ -143,6 +145,7 @@ img {
 	margin-top: 20px;
 	display: inline-block;
 	background-color: #fff;
+	cursor: pointer;
 }
 
 /* desktop screen */
