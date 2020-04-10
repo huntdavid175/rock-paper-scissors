@@ -3,6 +3,8 @@ const weapons = document.querySelectorAll(".image-bg");
 const selectedText = document.querySelector(".selected-text");
 const roundStatus = document.querySelector(".round-status");
 const scoreText = document.querySelector(".current-score");
+const modalContainer = document.querySelector(".modal-container");
+const closeModalButton = document.querySelector(".close-button");
 let score = 0;
 let setScore;
 
@@ -12,6 +14,8 @@ let playerWeapon;
 let computerWeapon;
 const showChosenSection = document.querySelector(".chosen");
 // console.log(weaponsContainer)
+
+
 
 weaponsContainer.addEventListener("click", function (e) {
 	if (e.target.className == "image-bg" || e.target.tagName == "IMG") {
@@ -139,4 +143,16 @@ function playAgain() {
 		roundStatus.style.display = "none";
 		selectedText.style.display = "none";
 	});
+}
+
+// Opening Rules modal 
+
+function showModal(){
+	modalContainer.style.display ="flex"; 
+}
+
+// Close Modal 
+
+function closeModal() {
+	modalContainer.style.display = "none"
 }
