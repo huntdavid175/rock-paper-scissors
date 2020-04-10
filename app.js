@@ -6,7 +6,7 @@ const scoreText = document.querySelector(".current-score");
 const modalContainer = document.querySelector(".modal-container");
 const closeModalButton = document.querySelector(".close-button");
 let score = 0;
-let setScore;
+let scoresArray = [];
 
 let playerSelectedDiv;
 let computerChoiceDiv;
@@ -14,8 +14,6 @@ let playerWeapon;
 let computerWeapon;
 const showChosenSection = document.querySelector(".chosen");
 // console.log(weaponsContainer)
-
-
 
 weaponsContainer.addEventListener("click", function (e) {
 	if (e.target.className == "image-bg" || e.target.tagName == "IMG") {
@@ -38,16 +36,14 @@ weaponsContainer.addEventListener("click", function (e) {
 			showChosenSection.appendChild(playerSelectedDiv);
 			showChosenSection.style.display = "flex";
 			selectedText.style.display = "flex";
-			
 		}
-        // setTimeout(computerSelection,3000)
-        setTimeout(function(){
-            computerSelection();
-            getPlayersWeapon();
-            decideWinner(playerWeapon, computerWeapon);
-            playAgain();
-        }, 1000)
-		
+		// setTimeout(computerSelection,3000)
+		setTimeout(function () {
+			computerSelection();
+			getPlayersWeapon();
+			decideWinner(playerWeapon, computerWeapon);
+			playAgain();
+		}, 1000);
 	}
 
 	// console.log(true)
@@ -59,8 +55,8 @@ function computerSelection() {
 	let random = Math.floor(Math.random() * 3);
 	computerChoiceDiv = weaponsContainer.children[random].cloneNode(true);
 	// console.log(computerChoiceDiv)
-    showChosenSection.appendChild(computerChoiceDiv);
-    roundStatus.style.display = "block";
+	showChosenSection.appendChild(computerChoiceDiv);
+	roundStatus.style.display = "block";
 }
 
 // Get player and computer Weapon
@@ -122,12 +118,12 @@ function decideWinner(playerWeapon, computerWeapon) {
 			case "Draw":
 				score += 0;
 				break;
-        }
-        localStorage.setItem(setScore,score)
-        // console.log(score);
-        // console.log(localStorage.getItem(setScore))
+		}
+		// localStorage.setItem(setScore, score);
+		// console.log(score);
+		// console.log(localStorage.getItem(setScore))
 
-		scoreText.textContent = localStorage.getItem(setScore);
+		scoreText.textContent = score;
 	}
 	scoreUpdate(decider);
 }
@@ -145,14 +141,56 @@ function playAgain() {
 	});
 }
 
-// Opening Rules modal 
+// Opening Rules modal
 
-function showModal(){
-	modalContainer.style.display ="flex"; 
+function showModal() {
+	modalContainer.style.display = "flex";
 }
 
-// Close Modal 
+// Close Modal
 
 function closeModal() {
-	modalContainer.style.display = "none"
+	modalContainer.style.display = "none";
+}
+
+
+// New Game 
+
+function newGame(){
+	if (scoresArray.indexOf(score) == -1){
+		scoresArray.push(score)
+	}
+	let arrayForStorage = JSON.stringify(scoresArray);
+	localStorage.setItem("gamescores",arrayForStorage);
+	console.log(scoresArray)
+}
+
+
+// Show High Scores 
+
+function showHighscore(){
+	let forHighScore = localStorage.getItem("gamescores");
+	forHighScore = JSON.parse(forHighScore)
+	let highScore = Math.max(...forHighScore)
+	console.log(forHighScore)
+	console.log(highScore)
+
+		const modal = document.querySelector(".modal")
+		console.log(modal.children)
+	
+		let highScoreHeader = document.getElementById("modal-text")
+		// modal.innerHTML = ""
+		highScoreHeader.textContent = "High Score";
+		modal.removeChild(modal.children[1]);
+	
+		let highScoreText = document.createElement("H1")
+		highScoreText.textContent = highScore;
+		modal.insertBefore(highScoreText,modal.children[1])
+		
+		modalContainer.style.display = "flex"
+		console.log(modal.children)
+	
+	
+	
+	
 }

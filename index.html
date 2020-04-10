@@ -50,7 +50,7 @@
 
 			<!-- selected section  -->
 
-			<div class="selector-section chosen">
+			<div class="selector-section chosen" style="margin-top:10px">
 				<!-- <div class="image-bg"><img src="images/icon-paper.svg"></div> -->
 				<!-- <div class="image-bg"><img src="images/icon-paper.svg"></div> -->
 			</div>
@@ -64,16 +64,24 @@
 				<span class="playagain">Play Again</span>
 			</div>
 
-			<span class="button" onclick="showModal()">Rules</span>
+			<div class="footer">
+				<span class="button" onclick="showHighscore()">High Scores</span>
+				<span class="button" onclick="newGame()">New Game</span>
+				<span class="button" onclick="showModal()">Rules</span>
+			</div>
 		</div>
 
 		<div class="modal-container">
-		<div class="modal">
-			<h1>Game Rules</h1>
-			<img src="images/image-rules.svg" class="rules-image">
-			<img src="images/icon-close.svg" class="close-button" onclick="closeModal()">
+			<div class="modal">
+				<h1 id="modal-text">Game Rules</h1>
+				<img src="images/image-rules.svg" class="rules-image" />
+				<img
+					src="images/icon-close.svg"
+					class="close-button"
+					onclick="closeModal()"
+				/>
+			</div>
 		</div>
-	</div>
 
 		<!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
