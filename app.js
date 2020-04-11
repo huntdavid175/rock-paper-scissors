@@ -159,19 +159,25 @@ function closeModal() {
 
 
 // New Game 
+// localStorage.setItem("gamescores",JSON.stringify(scoresArray) )
 
+if (!localStorage.getItem("gamescores")){
+	localStorage.setItem("gamescores",JSON.stringify(scoresArray))
+}
 function newGame(){
-	if (scoresArray.indexOf(score) == -1){
-		scoresArray.push(score)
+	let forLocal = JSON.parse(localStorage.getItem("gamescores"));
+	if (forLocal.indexOf(score) == -1){
+		forLocal.push(score)
 	}
-	let arrayForStorage = JSON.stringify(scoresArray);
-	localStorage.setItem("gamescores",arrayForStorage);
-	console.log(scoresArray)
+	
+	localStorage.setItem("gamescores",JSON.stringify(forLocal))
+	
 	score = 0;
 	scoreText.textContent = score;
 	showChosenSection.style.display = "none";
 	showChosenSection.innerHTML = ""
 	roundStatus.style.display = "none"
+	selectedText.style.display = "none"
 	weaponsContainer.style.display = "flex"
 	console.log(score)
 }
