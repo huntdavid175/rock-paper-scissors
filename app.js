@@ -167,6 +167,13 @@ function newGame(){
 	let arrayForStorage = JSON.stringify(scoresArray);
 	localStorage.setItem("gamescores",arrayForStorage);
 	console.log(scoresArray)
+	score = 0;
+	scoreText.textContent = score;
+	showChosenSection.style.display = "none";
+	showChosenSection.innerHTML = ""
+	roundStatus.style.display = "none"
+	weaponsContainer.style.display = "flex"
+	console.log(score)
 }
 
 
@@ -180,24 +187,6 @@ function showHighscore(){
 	console.log(highScore)
 
 		
-		// console.log(modal.children)
-		// modalContainer.innerHTML = "";
-		// let header = document.createElement("DIV");
-		// let title = document.createElement("H1");
-		// let highScoreText = document.createElement("H1")
-		// const close = document.createElement("IMG");
-		// // modal.innerHTML = "";
-
-		// title.textContent = "High Score";
-		// highScoreText.textContent = highScore;
-		// close.setAttribute("src","images/icon-close.svg");
-		 
-		// close.setAttribute("class","close-button")
-		// close.setAttribute("onclick","closeModal()");
-		// modal.replaceChild(title,modal.children[0])
-		// modal.appendChild(highScoreText);
-		// modal.appendChild(close)
-		// modalContainer.style.display = "flex";
 
 	
 		highScoreText.innerHTML = highScore;
