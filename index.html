@@ -72,7 +72,7 @@
 		</div>
 
 		<div class="modal-container">
-			<div class="modal">
+			<div class="modal" style="display:none">
 				<h1 id="modal-text">Game Rules</h1>
 				<img src="images/image-rules.svg" class="rules-image" />
 				<img
@@ -81,18 +81,20 @@
 					onclick="closeModal()"
 				/>
 			</div>
+
+			<div class="modal high-score-modal" style="display:none">
+				<h1>High Score</h1>
+				<h1 id="highscore-text"></h1>
+				<img
+						src="images/icon-close.svg"
+						class="close-button"
+						onclick="closeModal()"
+					/>
+	
+			</div>
 		</div>
 
-		<div class="modal high-score-modal" style="display:none">
-			<h1>High Score</h1>
-			<h1 id="highscore-text"></h1>
-			<img
-					src="images/icon-close.svg"
-					class="close-button"
-					onclick="closeModal()"
-				/>
-
-		</div>
+	
 
 		<!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

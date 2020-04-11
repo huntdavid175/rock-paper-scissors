@@ -5,6 +5,8 @@ const roundStatus = document.querySelector(".round-status");
 const scoreText = document.querySelector(".current-score");
 const modalContainer = document.querySelector(".modal-container");
 const closeModalButton = document.querySelector(".close-button");
+const highScoreModal = document.querySelector(".high-score-modal");
+const highScoreText = highScoreModal.children[1]
 let score = 0;
 let scoresArray = [];
 
@@ -144,7 +146,9 @@ function playAgain() {
 // Opening Rules modal
 
 function showModal() {
-	modalContainer.style.display = "flex";
+	modalContainer.style.display = "flex";;
+	highScoreModal.style.display = "none";
+	modal.style.display = "flex"
 }
 
 // Close Modal
@@ -181,35 +185,26 @@ function showHighscore(){
 		// let header = document.createElement("DIV");
 		// let title = document.createElement("H1");
 		// let highScoreText = document.createElement("H1")
-		
-		// // console.log(closeButtonImg)
-		// let close = closeModalButton.cloneNode(true);
-		
+		// const close = document.createElement("IMG");
+		// // modal.innerHTML = "";
 
-		// header.classList.add("modal");
-		// title.textContent = "High Score"
-		// highScoreText.textContent = highScore
-	
-		// modalContainer.appendChild(header);
-		// header.appendChild(title);
-		// header.appendChild(highScoreText);
-		// header.appendChild(close)
-
-
-	
-		// let highScoreHeader = document.getElementById("modal-text")
-		// // modal.innerHTML = ""
-		// highScoreHeader.textContent = "High Score";
-		// modal.removeChild(modal.children[1]);
-	
-		// let highScoreText = document.createElement("H1")
+		// title.textContent = "High Score";
 		// highScoreText.textContent = highScore;
-		// modal.insertBefore(highScoreText,modal.children[1])
+		// close.setAttribute("src","images/icon-close.svg");
+		 
+		// close.setAttribute("class","close-button")
+		// close.setAttribute("onclick","closeModal()");
+		// modal.replaceChild(title,modal.children[0])
+		// modal.appendChild(highScoreText);
+		// modal.appendChild(close)
+		// modalContainer.style.display = "flex";
+
+	
+		highScoreText.innerHTML = highScore;
+		modalContainer.style.display = "flex";
+		highScoreModal.style.display = "flex"
+		modal.style.display = "none"
 		
-		// modalContainer.style.display = "flex"
-		console.log(modal.children)
-	
-	
-	
+		console.log(highScoreText)
 	
 }
