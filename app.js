@@ -167,7 +167,7 @@ function newGame(){
 
 
 // Show High Scores 
-
+const modal = document.querySelector(".modal")
 function showHighscore(){
 	let forHighScore = localStorage.getItem("gamescores");
 	forHighScore = JSON.parse(forHighScore)
@@ -175,19 +175,38 @@ function showHighscore(){
 	console.log(forHighScore)
 	console.log(highScore)
 
-		const modal = document.querySelector(".modal")
-		console.log(modal.children)
-	
-		let highScoreHeader = document.getElementById("modal-text")
-		// modal.innerHTML = ""
-		highScoreHeader.textContent = "High Score";
-		modal.removeChild(modal.children[1]);
-	
-		let highScoreText = document.createElement("H1")
-		highScoreText.textContent = highScore;
-		modal.insertBefore(highScoreText,modal.children[1])
 		
-		modalContainer.style.display = "flex"
+		// console.log(modal.children)
+		// modalContainer.innerHTML = "";
+		// let header = document.createElement("DIV");
+		// let title = document.createElement("H1");
+		// let highScoreText = document.createElement("H1")
+		
+		// // console.log(closeButtonImg)
+		// let close = closeModalButton.cloneNode(true);
+		
+
+		// header.classList.add("modal");
+		// title.textContent = "High Score"
+		// highScoreText.textContent = highScore
+	
+		// modalContainer.appendChild(header);
+		// header.appendChild(title);
+		// header.appendChild(highScoreText);
+		// header.appendChild(close)
+
+
+	
+		// let highScoreHeader = document.getElementById("modal-text")
+		// // modal.innerHTML = ""
+		// highScoreHeader.textContent = "High Score";
+		// modal.removeChild(modal.children[1]);
+	
+		// let highScoreText = document.createElement("H1")
+		// highScoreText.textContent = highScore;
+		// modal.insertBefore(highScoreText,modal.children[1])
+		
+		// modalContainer.style.display = "flex"
 		console.log(modal.children)
 	
 	
