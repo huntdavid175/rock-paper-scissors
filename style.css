@@ -199,6 +199,80 @@ img {
 	height: 30px;
 }
 
+
+/* Tiny screens  */
+
+@media only screen and (max-width: 340px){
+	.score-board {
+		height:60px
+	}
+	
+	.score{
+		width:40px;
+		height: 40px;
+	}
+	
+	.score h4 {
+		font-size: 10px;
+	}
+	
+	.current-score{
+		font-size: 15px;
+	}
+
+	li {
+		font-size: 13px;
+	}
+
+	.selector-section{
+		width: 80%;
+		height: 150px;
+	}
+
+	.image-bg {
+		width: 90px;;
+		height: 90px;
+	}
+
+	.image-bg img {
+		width: 30px;
+		height: 30px;
+	}
+
+	.selected-text {
+		font-size: 14px;
+		margin-top: -15px;
+	}
+
+	#decider-text{
+		font-size: 19px;
+	}
+
+	.playagain {
+		padding: 5px 20px;
+	}
+
+	.button {
+		display: inline-block;
+		padding: 5px 10px;
+		margin: 5px;
+	}
+}
+
+
+
+/* small Screens  */
+
+@media only screen and (max-width: 400px){
+	.chosen {
+	height: 110px;
+	margin-top: 20px;
+	}
+}
+
+
+
+
 /* desktop screen */
 
 @media only screen and (min-width: 768px) {
