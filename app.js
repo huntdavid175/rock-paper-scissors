@@ -6,7 +6,7 @@ const scoreText = document.querySelector(".current-score");
 const modalContainer = document.querySelector(".modal-container");
 const closeModalButton = document.querySelector(".close-button");
 const highScoreModal = document.querySelector(".high-score-modal");
-const highScoreText = highScoreModal.children[1]
+const highScoreText = highScoreModal.children[1];
 let score = 0;
 let scoresArray = [];
 
@@ -15,11 +15,9 @@ let computerChoiceDiv;
 let playerWeapon;
 let computerWeapon;
 const showChosenSection = document.querySelector(".chosen");
-// console.log(weaponsContainer)
 
 weaponsContainer.addEventListener("click", function (e) {
 	if (e.target.className == "image-bg" || e.target.tagName == "IMG") {
-		// console.log(true)
 		weaponsContainer.style.display = "none";
 		let divTarget;
 		let imageTarget;
@@ -27,11 +25,9 @@ weaponsContainer.addEventListener("click", function (e) {
 		if (e.target.className == "image-bg") {
 			divTarget = e.target;
 			playerSelectedDiv = divTarget.cloneNode(true);
-			// console.log(playerSelectedDiv)
 			showChosenSection.appendChild(playerSelectedDiv);
 			showChosenSection.style.display = "flex";
 			selectedText.style.display = "flex";
-			// roundStatus.style.display = "block";
 		} else if (e.target.tagName == "IMG") {
 			imageTarget = e.target;
 			playerSelectedDiv = imageTarget.parentNode.cloneNode(true);
@@ -39,7 +35,6 @@ weaponsContainer.addEventListener("click", function (e) {
 			showChosenSection.style.display = "flex";
 			selectedText.style.display = "flex";
 		}
-		// setTimeout(computerSelection,3000)
 		setTimeout(function () {
 			computerSelection();
 			getPlayersWeapon();
@@ -47,8 +42,6 @@ weaponsContainer.addEventListener("click", function (e) {
 			playAgain();
 		}, 1000);
 	}
-
-	// console.log(true)
 });
 
 // Getting Computer's Choice
@@ -56,7 +49,6 @@ weaponsContainer.addEventListener("click", function (e) {
 function computerSelection() {
 	let random = Math.floor(Math.random() * 3);
 	computerChoiceDiv = weaponsContainer.children[random].cloneNode(true);
-	// console.log(computerChoiceDiv)
 	showChosenSection.appendChild(computerChoiceDiv);
 	roundStatus.style.display = "block";
 }
@@ -64,17 +56,13 @@ function computerSelection() {
 // Get player and computer Weapon
 function getPlayersWeapon() {
 	playerWeapon = playerSelectedDiv.getAttribute("id");
-	// console.log(playerWeapon)
 
 	computerWeapon = computerChoiceDiv.getAttribute("id");
-	// console.log(computerWeapon)
 }
 
 // Decide round winner
 
 function decideWinner(playerWeapon, computerWeapon) {
-	// console.log(`playerWeapon = ${playerWeapon}`)
-	// console.log(`computerWeapon = ${computerWeapon}`)
 	const deciderText = document.querySelector("#decider-text");
 	let decider;
 
@@ -92,7 +80,6 @@ function decideWinner(playerWeapon, computerWeapon) {
 	if (playerWeapon == "paper") {
 		if (playerWeapon == "paper" && computerWeapon == "rock") {
 			decider = "You Won";
-			// console.log(playerWeapon)
 		} else if (playerWeapon == "paper" && computerWeapon == "scissors") {
 			decider = "You Lost";
 		}
@@ -106,7 +93,6 @@ function decideWinner(playerWeapon, computerWeapon) {
 		}
 	}
 
-	// console.log(decider)
 	deciderText.textContent = decider;
 
 	function scoreUpdate(decider) {
@@ -121,9 +107,6 @@ function decideWinner(playerWeapon, computerWeapon) {
 				score += 0;
 				break;
 		}
-		// localStorage.setItem(setScore, score);
-		// console.log(score);
-		// console.log(localStorage.getItem(setScore))
 
 		scoreText.textContent = score;
 	}
@@ -135,7 +118,6 @@ function playAgain() {
 
 	playAgainBtn.addEventListener("click", function (e) {
 		weaponsContainer.style.display = "flex";
-		// console.log(weaponsContainer)
 		showChosenSection.style.display = "none";
 		showChosenSection.innerHTML = "";
 		roundStatus.style.display = "none";
@@ -146,9 +128,9 @@ function playAgain() {
 // Opening Rules modal
 
 function showModal() {
-	modalContainer.style.display = "flex";;
+	modalContainer.style.display = "flex";
 	highScoreModal.style.display = "none";
-	modal.style.display = "flex"
+	modal.style.display = "flex";
 }
 
 // Close Modal
@@ -157,49 +139,37 @@ function closeModal() {
 	modalContainer.style.display = "none";
 }
 
+// New Game
 
-// New Game 
-// localStorage.setItem("gamescores",JSON.stringify(scoresArray) )
-
-if (!localStorage.getItem("gamescores")){
-	localStorage.setItem("gamescores",JSON.stringify(scoresArray))
+if (!localStorage.getItem("gamescores")) {
+	localStorage.setItem("gamescores", JSON.stringify(scoresArray));
 }
-function newGame(){
+function newGame() {
 	let forLocal = JSON.parse(localStorage.getItem("gamescores"));
-	if (forLocal.indexOf(score) == -1){
-		forLocal.push(score)
+	if (forLocal.indexOf(score) == -1) {
+		forLocal.push(score);
 	}
-	
-	localStorage.setItem("gamescores",JSON.stringify(forLocal))
-	
+
+	localStorage.setItem("gamescores", JSON.stringify(forLocal));
+
 	score = 0;
 	scoreText.textContent = score;
 	showChosenSection.style.display = "none";
-	showChosenSection.innerHTML = ""
-	roundStatus.style.display = "none"
-	selectedText.style.display = "none"
-	weaponsContainer.style.display = "flex"
-	console.log(score)
+	showChosenSection.innerHTML = "";
+	roundStatus.style.display = "none";
+	selectedText.style.display = "none";
+	weaponsContainer.style.display = "flex";
 }
 
-
-// Show High Scores 
-const modal = document.querySelector(".modal")
-function showHighscore(){
+// Show High Scores
+const modal = document.querySelector(".modal");
+function showHighscore() {
 	let forHighScore = localStorage.getItem("gamescores");
-	forHighScore = JSON.parse(forHighScore)
-	let highScore = Math.max(...forHighScore)
-	console.log(forHighScore)
-	console.log(highScore)
+	forHighScore = JSON.parse(forHighScore);
+	let highScore = Math.max(...forHighScore);
 
-		
-
-	
-		highScoreText.innerHTML = highScore;
-		modalContainer.style.display = "flex";
-		highScoreModal.style.display = "flex"
-		modal.style.display = "none"
-		
-		console.log(highScoreText)
-	
+	highScoreText.innerHTML = highScore;
+	modalContainer.style.display = "flex";
+	highScoreModal.style.display = "flex";
+	modal.style.display = "none";
 }
